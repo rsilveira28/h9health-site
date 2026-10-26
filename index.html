@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>H9 Health</title>
+<meta name="description" content="H9 Health LLC builds preventive health brands through content, education and products. Kissimmee, Florida.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+/* Layout: corporate holding page. Dark, single-look design; big statement, proof numbers, brand portfolio, then company details. */
+:root{
+  --bg:#0c1210; --panel:#121b18; --ink:#eef3f0; --muted:#97a9a1;
+  --accent:#4fd18f; --gold:#e3b347; --line:#22302a;
+  --display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body:"Source Sans 3", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+a{color:var(--accent)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+h1,h2,h3{font-family:var(--display);line-height:1.05;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.6rem,7vw,5.4rem);font-weight:800;letter-spacing:-0.035em}
+h1 em{font-style:normal;color:var(--accent)}
+h2{font-size:clamp(1.8rem,3.6vw,2.7rem);font-weight:800;letter-spacing:-0.02em}
+h3{font-size:1.2rem;font-weight:600}
+p{margin:0;max-width:62ch}
+.label{font-size:.76rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.muted{color:var(--muted)}
+
+header{border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:20px;flex-wrap:wrap}
+.mark{font-family:var(--display);font-weight:800;font-size:1.3rem;color:var(--ink);text-decoration:none;letter-spacing:-0.02em}
+.mark b{color:var(--accent)}
+nav{display:flex;gap:24px;flex-wrap:wrap}
+nav a{color:var(--muted);text-decoration:none;font-weight:600;font-size:.95rem}
+nav a:hover{color:var(--ink)}
+
+.hero{padding-block:88px 72px;display:grid;gap:28px}
+.hero .lede{font-size:1.25rem;color:var(--muted);max-width:58ch}
+.cta{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 22px;border-radius:999px;font-weight:600;text-decoration:none;border:1px solid var(--accent)}
+.btn.primary{background:var(--accent);color:var(--bg)}
+.btn.ghost{color:var(--ink);border-color:var(--line)}
+.btn:hover{filter:brightness(1.08)}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat{padding:28px 22px;border-left:1px solid var(--line);display:grid;gap:4px;min-width:0}
+.stat:first-child{border-left:0;padding-left:0}
+.stat strong{font-family:var(--display);font-size:clamp(2rem,4vw,2.8rem);font-weight:800;letter-spacing:-0.03em;font-variant-numeric:tabular-nums}
+.stat span{color:var(--muted);font-size:.95rem}
+
+section{padding-block:80px}
+.head{display:grid;gap:12px;margin-bottom:40px}
+
+.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.step{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:26px;display:grid;gap:10px;align-content:start;min-width:0}
+.step small{font-family:var(--display);font-weight:800;color:var(--accent);font-size:.9rem;letter-spacing:.06em}
+.step p{color:var(--muted)}
+
+.brands{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.brand{background:var(--bg);padding:28px 24px;display:grid;gap:6px;align-content:start;min-width:0}
+.brand h3{font-size:1.35rem;font-weight:800;letter-spacing:-0.01em}
+.brand span{font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.brand p{color:var(--muted);font-size:.95rem}
+.note{margin-top:14px;font-size:.85rem;color:var(--muted)}
+
+.us{background:var(--panel);border-block:1px solid var(--line)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.split > div{display:grid;gap:18px;min-width:0}
+.list{margin:0;padding:0;list-style:none;display:grid}
+.list li{padding-block:14px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.list li:first-child{border-top:1px solid var(--line)}
+.list em{font-style:normal;color:var(--muted)}
+
+.creds{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.creds li{padding-left:18px;position:relative;color:var(--muted)}
+.creds li::before{content:"";position:absolute;left:0;top:.65em;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+
+.contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:40px}
+address{font-style:normal;font-size:1.1rem;line-height:1.7}
+.email{font-family:var(--display);font-size:clamp(1.4rem,3vw,2rem);font-weight:600;color:var(--ink);word-break:break-word;user-select:all}
+
+footer{border-top:1px solid var(--line);padding-block:32px;color:var(--muted);font-size:.85rem}
+footer .wrap{display:grid;gap:10px}
+
+@media (max-width:820px){
+  .stats{grid-template-columns:1fr 1fr}
+  .stat:nth-child(3){border-left:0;padding-left:0}
+  .stat:nth-child(n+3){border-top:1px solid var(--line)}
+  .flow,.split{grid-template-columns:1fr}
+  .hero{padding-block:56px 48px}
+  section{padding-block:56px}
+}
+@media (max-width:420px){
+  .stats{grid-template-columns:1fr}
+  .stat{border-left:0;padding-left:0;border-top:1px solid var(--line)}
+  .stat:first-child{border-top:0}
+}
+</style>
+<style>body{margin:0}img{max-width:100%}</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="mark" href="#top">H9<b>.</b> Health</a>
+    <nav aria-label="Main">
+      <a href="#model">How we build</a>
+      <a href="#brands">Brands</a>
+      <a href="#florida">Florida</a>
+      <a href="#careers">Careers</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <span class="label">Preventive health company · Kissimmee, Florida</span>
+    <h1>We build health brands <em>people trust.</em></h1>
+    <p class="lede">H9 Health is the U.S. company of a health group founded in Brazil in 2011. We grow preventive-health brands through content, education and products, and we are now bringing that model to the United States.</p>
+    <div class="cta">
+      <a class="btn primary" href="#contact">Partner with us</a>
+      <a class="btn ghost" href="#brands">See our brands</a>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat"><strong>2011</strong><span>Group founded in Brazil</span></div>
+      <div class="stat"><strong>10M+</strong><span>Followers across our channels</span></div>
+      <div class="stat"><strong>10,000+</strong><span>People personally consulted by our founder</span></div>
+      <div class="stat"><strong>9</strong><span>Trademarks filed in Brazil</span></div>
+    </div>
+  </div>
+
+  <section id="model">
+    <div class="wrap">
+      <div class="head">
+        <span class="label">How we build</span>
+        <h2>Audience first. Products last.</h2>
+        <p class="muted">Every brand starts with content people want to watch and ends with products they already asked for.</p>
+      </div>
+      <div class="flow">
+        <div class="step"><small>CONTENT</small><h3>Build trust at scale</h3><p>Free, practical health content on Instagram, YouTube, TikTok and Facebook.</p></div>
+        <div class="step"><small>EDUCATION</small><h3>Turn interest into habits</h3><p>Online courses, books, mentoring and apps that guide people step by step.</p></div>
+        <div class="step"><small>PRODUCTS</small><h3>Deliver what people need</h3><p>Supplements and wellness products made by licensed manufacturers under our brands.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="brands">
+    <div class="wrap">
+      <div class="head">
+        <span class="label">Our brands</span>
+        <h2>The group's portfolio</h2>
+      </div>
+      <div class="brands">
+        <div class="brand"><span>Supplements</span><h3>H9 Pharma</h3><p>Direct-to-consumer supplement brand.</p></div>
+        <div class="brand"><span>Method</span><h3>Thermogenic Fasting</h3><p>Proprietary nutrition method, taught through courses and mentoring.</p></div>
+        <div class="brand"><span>Teas</span><h3>Magic Chá</h3><p>Functional tea blends.</p></div>
+        <div class="brand"><span>Beverages</span><h3>Sky Coffee</h3><p>Functional coffee line.</p></div>
+        <div class="brand"><span>Books</span><h3>The Bible of Natural Recipes</h3><p>Published guide to natural recipes for everyday wellness.</p></div>
+      </div>
+      <p class="note">Brands registered or filed with Brazil's National Institute of Industrial Property (INPI). U.S. availability will be announced brand by brand.</p>
+    </div>
+  </section>
+
+  <section id="florida" class="us">
+    <div class="wrap split">
+      <div>
+        <span class="label">United States</span>
+        <h2>Our first U.S. office, in Central Florida.</h2>
+        <p class="muted">H9 Health LLC is a Florida company with its office in Kissimmee. From here we will launch our courses, mentoring, books, apps and selected supplements, and work with local partners.</p>
+      </div>
+      <div>
+        <ul class="list">
+          <li><strong>Clinics</strong><em>Patient education programs</em></li>
+          <li><strong>Health coaches</strong><em>Licensed content and methods</em></li>
+          <li><strong>Hospitality</strong><em>Wellness programs for hotels and resorts</em></li>
+          <li><strong>Consumers</strong><em>Courses, books, apps and supplements</em></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="leadership">
+    <div class="wrap split">
+      <div>
+        <span class="label">Leadership</span>
+        <h2>Renato Silveira dos Reis</h2>
+        <p class="muted">Founder of the group · General and Operations Manager, H9 Health LLC</p>
+      </div>
+      <div>
+        <p>Renato opened the group's first company, a compounding pharmacy in Minas Gerais, Brazil, in 2011. He has personally consulted more than 10,000 people and built a health audience of over 10 million followers.</p>
+        <ul class="creds">
+          <li>Pharmacist, Regional Pharmacy Council of Minas Gerais</li>
+          <li>Specialization in Nutriendocrinology</li>
+          <li>Master's degree in Naturopathic Sciences, Universidad Europea del Atlántico, Spain</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="careers" class="us">
+    <div class="wrap split">
+      <div>
+        <span class="label">Careers</span>
+        <h2>Join the Florida team.</h2>
+        <p class="muted">We are building our first local team in Kissimmee. Send your résumé to the email below with the position in the subject line.</p>
+      </div>
+      <div>
+        <ul class="list">
+          <li><strong>Administrative Supervisor</strong><em>Full time · Kissimmee, FL</em></li>
+          <li><strong>Sales Supervisor</strong><em>Full time · Kissimmee, FL</em></li>
+          <li><strong>Customer Service Representative</strong><em>Full time · Kissimmee, FL</em></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="head">
+        <span class="label">Contact</span>
+        <h2>Talk to us</h2>
+      </div>
+      <div class="contact">
+        <div style="display:grid;gap:8px">
+          <span class="muted">Email</span>
+          <span class="email">reis@h9health.com</span>
+        </div>
+        <address>
+          <span class="muted">Office</span><br>
+          <strong>H9 Health LLC</strong><br>
+          3300 Greenwald Way N, Suite B<br>
+          Kissimmee, FL 34741, United States
+        </address>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 H9 Health LLC · Florida limited liability company, document no. L26000272450</span>
+    <span>These statements have not been evaluated by the Food and Drug Administration. Our products are not intended to diagnose, treat, cure, or prevent any disease.</span>
+  </div>
+</footer>
+
+</body>
+</html>
